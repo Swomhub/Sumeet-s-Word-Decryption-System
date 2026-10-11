@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg-primary: #101113;
+  --bg-secondary: #17191D;
+  --bg-card: #1D2025;
+  --bg-elevated: #252930;
+  --text-primary: #F5F5F7;
+  --text-secondary: #A5A9B2;
+  --border-color: #343840;
+  --accent-violet: #9B87F5;
+  --accent-cyan: #64D9F2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-violet);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(155, 135, 245, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(155, 135, 245, 0.3);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.animate-fade-in-up-delay-1 {
+  animation: fadeInUp 0.5s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-2 {
+  animation: fadeInUp 0.5s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-3 {
+  animation: fadeInUp 0.5s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.shimmer-loading {
+  background: linear-gradient(
+    90deg,
+    var(--bg-card) 25%,
+    var(--bg-elevated) 50%,
+    var(--bg-card) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Glow button */
+.btn-decode {
+  background: linear-gradient(135deg, #9B87F5 0%, #7c6bd4 100%);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-decode:hover {
+  background: linear-gradient(135deg, #B4A0FF 0%, #9B87F5 100%);
+  box-shadow: 0 0 30px rgba(155, 135, 245, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-decode:active {
+  transform: translateY(0);
+}
+
+.btn-decode:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Textarea styling */
+.decoder-textarea {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.decoder-textarea:focus {
+  border-color: var(--accent-violet);
+  box-shadow: 0 0 0 3px rgba(155, 135, 245, 0.1);
+  outline: none;
+}
+
+/* Select styling */
+.custom-select {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  transition: border-color 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23A5A9B2' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+.custom-select:focus {
+  border-color: var(--accent-violet);
+  outline: none;
+}
+
+/* Example chip */
+.example-chip {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.example-chip:hover {
+  border-color: var(--accent-violet);
+  background: rgba(155, 135, 245, 0.08);
+  transform: translateY(-1px);
+}
+
+/* Result card */
+.result-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+/* Copy button feedback */
+.copy-btn {
+  transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+  color: var(--accent-violet);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #9B87F5, #64D9F2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hero gradient */
+.hero-gradient {
+  background: radial-gradient(
+    ellipse 80% 50% at 50% -10%,
+    rgba(155, 135, 245, 0.08) 0%,
+    transparent 70%
+  );
+}
